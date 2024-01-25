@@ -47,7 +47,3 @@ class Channel:
                 }
         with open(file_name, 'w', encoding='UTF-8') as file:
             json.dump(data, file)
-
-
-moscowpython = Channel('UC-OVMPlMA3-YCIeg4z5z23A')
-print(moscowpython.to_json('moscov.json'))
