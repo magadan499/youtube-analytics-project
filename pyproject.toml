@@ -8,6 +8,7 @@ packages = [{include = "dz_13"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+google-api-python-client = "^2.115.0"
 
 
 [build-system]
