@@ -41,9 +41,9 @@ class Channel:
                 'title': self.title,
                 'description': self.description,
                 'url': self.url,
-                'subscriberCount': self.subscriberCount,
-                'videoCount': self.videoCount,
-                'viewCount': self.viewCount
+                'subscriber_Count': self.subscriberCount,
+                'video_Count': self.videoCount,
+                'view_Count': self.viewCount
                 }
         with open(file_name, 'w', encoding='UTF-8') as file:
             json.dump(data, file)
