@@ -35,6 +35,19 @@ class Channel:
         youtube = build('youtube', 'v3', developerKey=api_key)
         return youtube
 
+    def to_json(self, file_name):
+        """Сохраняет в Json файл значения атрибутов экземпляра - информацию о канале"""
+        data = {'channel_id': self.channel_id,
+                'title': self.title,
+                'description': self.description,
+                'url': self.url,
+                'subscriberCount': self.subscriberCount,
+                'videoCount': self.videoCount,
+                'viewCount': self.viewCount
+                }
+        with open(file_name, 'w', encoding='UTF-8') as file:
+            json.dump(data, file)
+
 
 moscowpython = Channel('UC-OVMPlMA3-YCIeg4z5z23A')
-print(moscowpython.print_info())
+print(moscowpython.to_json('moscov.json'))
