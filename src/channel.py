@@ -19,6 +19,7 @@ class Channel:
         self.view_count = channel['items'][0]['statistics']['viewCount']
 
     def __str__(self):
+        """Вывод названия канала и ссылки на канал"""
         return f"{self.title} {self.url}"
 
     def __add__(self, other):
@@ -27,7 +28,30 @@ class Channel:
 
     def __sub__(self, other):
         """Вычитание количества подписчиков"""
-        return self.subscriber_count - other.subscriber_count
+        if self.subscriber_count - other.subscriber_count:
+            return self.subscriber_count - other.subscriber_count
+        else:
+            return other.subscriber_count - self.subscriber_count
+
+    def __gt__(self, other):
+        """Сравнение количества подписчиков (больше)"""
+        return self.subscriber_count > other.subscriber_count
+
+    def __ge__(self, other):
+        """Сравнение количества подписчиков (больше либо равно)"""
+        return self.subscriber_count >= other.subscriber_count
+
+    def __lt__(self, other):
+        """Сравнение количества подписчиков (меньше)"""
+        return self.subscriber_count < other.subscriber_count
+
+    def __le__(self, other):
+        """Сравнение количества подписчиков (меньше либо равно)"""
+        return self.subscriber_count <= other.subscriber_count
+
+    def __eq__(self, other):
+        """Сравнение количества подписчиков (равенство)"""
+        return self.subscriber_count == other.subscriber_count
 
     def printj(self, dict_to_print: dict) -> None:
         """Выводит словарь в json-подобном удобном формате с отступами"""
